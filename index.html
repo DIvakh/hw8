@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //         1. Напишите функцию camelize(str), которая преобразует строки вида «my-short-string» в «myShortString».
+      // У вас есть массив строк:
+
+      // var stringsInCebab = ['border-top-left-width', 'font-size', 'background-color']
+
+      // Используя свою ф-ию camelize преобразуйте каждый элемент такого массива из cebab-case в camelCase.
+      // В результате должно получиться:
+
+      // var stringsInCamel = ['borderTopLeftWidth', 'fontSize', 'backgroundColor'];
+
+      // Для решения этого задания можно использовать методы массива для решения.
+
+      // var stringsInCebab = [
+      //   "border-top-left-width",
+      //   "font-size",
+      //   "background-color",
+      // ];
+
+      var stringsInCebab = [
+        "border-top-left-width",
+        "font-size",
+        "background-color",
+      ];
+
+      function camelize(str) {
+        for (var i = 0; i < str.length; i++) {
+          if (str[i] === "-") {
+            var str = str.replace(str[i + 1], str[i + 1].toUpperCase());
+          }
+        }
+        var str = str.split("-").join("");
+        return str;
+      }
+      console.log(camelize("background-color"));
+
+      var stringsInCamel = [];
+      stringsInCebab.forEach((element) => {
+        return stringsInCamel.push(camelize(element));
+      });
+      console.log(stringsInCamel);
+    </script>
+  </body>
+</html>
