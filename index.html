@@ -49,7 +49,7 @@
         for (string of arr) {
           for (var i = 0; i < string.length; i++) {
             if (string[i] === "-") {
-              string =
+              var string =
                 string.slice(0, i) +
                 string[i + 1].toUpperCase() +
                 string.slice(i + 2);
@@ -64,9 +64,10 @@
       //      2. Напишите свою реализацию методов map и filter. Это должна быть ф-ия, которая принимает
       // массив и колбэк, а в результате отрабатывают как соотв. методы.
 
-      // ==== 1. Реализация Map ====
+      // 1. Реализация Map;
       var arr1 = ["border-radius", "margin-left", "text-decoration"];
       var arr2 = [1, 2, 3, 4, 5, 6];
+
       function map(array, callBack) {
         var result = [];
         for (var i = 0; i < array.length; i++) {
@@ -80,9 +81,42 @@
           return num * 2;
         })
       );
+
       console.log(
         map(arr1, function (str) {
           return camelize(str);
+        })
+      );
+
+      //2. Реализация Filter;
+      var arr3 = [10, 20, 130, 70, 80, 12];
+      var arr4 = [
+        "border-radius",
+        "padding",
+        "background-color",
+        "min-height",
+        "cursor",
+      ];
+
+      function filter(array, callBack) {
+        var result = [];
+        for (el of array) {
+          if (callBack(el)) {
+            result.push(el);
+          }
+        }
+        return result;
+      }
+
+      console.log(
+        filter(arr3, function (num) {
+          return num > 50;
+        })
+      );
+
+      console.log(
+        filter(arr4, function (str) {
+          return !str.includes("-");
         })
       );
     </script>
