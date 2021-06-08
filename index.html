@@ -40,6 +40,7 @@
       stringsInCamel = stringsInCebab.map(function (str) {
         return camelize(str);
       });
+      console.log("First solution:");
       console.log(stringsInCamel);
 
       // ============== Вторая реализация
@@ -59,6 +60,7 @@
         }
         return stringsInCamel;
       }
+      console.log("Second solution:");
       console.log(camelizeAll(stringsInCebab));
 
       //      2. Напишите свою реализацию методов map и filter. Это должна быть ф-ия, которая принимает
@@ -75,7 +77,7 @@
         }
         return result;
       }
-
+      console.log("Map Function:");
       console.log(
         map(arr2, function (num) {
           return num * 2;
@@ -107,7 +109,7 @@
         }
         return result;
       }
-
+      console.log("Filter Function:");
       console.log(
         filter(arr3, function (num) {
           return num > 50;
