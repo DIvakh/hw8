@@ -28,7 +28,7 @@
         "background-color",
       ];
 
-      function camelize(str) {
+      function camelizeString(str) {
         for (var i = 0; i < str.length; i++) {
           if (str[i] === "-") {
             var str =
@@ -37,36 +37,19 @@
         }
         return str;
       }
-      stringsInCamel = stringsInCebab.map(function (str) {
-        return camelize(str);
-      });
-      console.log("First solution:");
-      console.log(stringsInCamel);
 
-      // ============== Вторая реализация
-
-      function camelizeAll(arr) {
-        var stringsInCamel = [];
-        for (string of arr) {
-          for (var i = 0; i < string.length; i++) {
-            if (string[i] === "-") {
-              var string =
-                string.slice(0, i) +
-                string[i + 1].toUpperCase() +
-                string.slice(i + 2);
-            }
-          }
-          stringsInCamel.push(string);
-        }
-        return stringsInCamel;
+      function camelize(arr) {
+        return arr.map((value) => camelizeString(value));
       }
-      console.log("Second solution:");
-      console.log(camelizeAll(stringsInCebab));
+      console.log(camelize(stringsInCebab));
+
+      // =========================================
 
       //      2. Напишите свою реализацию методов map и filter. Это должна быть ф-ия, которая принимает
       // массив и колбэк, а в результате отрабатывают как соотв. методы.
 
-      // 1. Реализация Map;
+      // 1. ==== Реализация Map ====
+
       var arr1 = ["border-radius", "margin-left", "text-decoration"];
       var arr2 = [1, 2, 3, 4, 5, 6];
 
@@ -86,11 +69,12 @@
 
       console.log(
         map(arr1, function (str) {
-          return camelize(str);
+          return camelizeString(str);
         })
       );
 
-      //2. Реализация Filter;
+      //2. ==== Реализация Filter ====
+
       var arr3 = [10, 20, 130, 70, 80, 12];
       var arr4 = [
         "border-radius",
